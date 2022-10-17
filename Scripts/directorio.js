@@ -4,6 +4,7 @@ let btnguardar =document.querySelector("#btnguardar");
 let btncancelar =document.querySelector("#btncancelar");
 
 
+
 let lista=document.querySelector(".listaAmigos");
 let formulario = document.querySelector("#formulario");
 
@@ -63,10 +64,22 @@ function showDetalles(tel)
     <h3>${amigo.nombre}</h3>
     <p><span>Teléfono:</span>${amigo.telefono}</p>
     <p><span>Correo:</span>${amigo.correo}</p>
-    <button>Cerrar</button>`;
+    <button id="btncerrar">Cerrar</button>`;
     detalles.classList.remove("oculto");
+    cerrardetalles();
 
 }
+
+function cerrardetalles()
+{
+    let cerrar=document.getElementById("btncerrar");
+    cerrar.addEventListener("click", ocultar=>
+    {
+        let ventana=document.getElementById("detallesAmigo");
+        ventana.classList.add("oculto"); 
+    });
+}
+
 
 btnguardar.addEventListener("click",(event)=>
 {
