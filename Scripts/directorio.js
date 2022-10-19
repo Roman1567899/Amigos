@@ -28,9 +28,9 @@ function pintar()
     if(amigos.length>0)
     {
         lista.innerHTML="";
-        amigos.forEach((contacto)=>{
+        amigos.forEach((contacto, indice)=>{
             let amigo=document.createElement("div");
-            amigo.innerHTML=`<p>${contacto.nombre}</p><button class="muestraDetalles"><input type="hidden" value="${contacto.telefono}" />Detalles</button>`;  
+            amigo.innerHTML=`<p>${contacto.nombre}</p><button class="muestraDetalles"><input type="hidden" value="${contacto.telefono}" />Detalles</button> <button class="btncerrar" indice="${indice}">Eliminar</button>`;  
             lista.appendChild(amigo);
         });
         let botones=document.getElementsByClassName("muestraDetalles");
@@ -42,11 +42,30 @@ function pintar()
                 showDetalles(element.children[0].value);
             })
         }
+        botones=document.getElementsByClassName("btncerrar");
+        for(let i = 0; i<botones.length; i++)
+        {
+            const element = botones[i];
+            element.addEventListener("click",()=>
+            {
+                amigos.splice(element.getAttribute("indice"),1);
+                pintar();
+            });
+        }       
     }
     else
     {
         lista.innerHTML="<h2> No tenemos compas</h2>";
     }
+}
+
+function deleteuser()
+{
+    let botn=document.getElementById(btncerrar);
+    let index=amigos.splice(a=>
+        {
+            
+        });
 }
 
 function showDetalles(tel)
@@ -62,6 +81,7 @@ function showDetalles(tel)
 
     detalles.innerHTML=`<img src="${amigo.foto}" alt="">
     <h3>${amigo.nombre}</h3>
+    <div><p>Este número ya existe<p/><div/>
     <p><span>Teléfono:</span>${amigo.telefono}</p>
     <p><span>Correo:</span>${amigo.correo}</p>
     <button id="btncerrar">Cerrar</button>`;
@@ -73,7 +93,7 @@ function showDetalles(tel)
 function cerrardetalles()
 {
     let cerrar=document.getElementById("btncerrar");
-    cerrar.addEventListener("click", ocultar=>
+    cerrar.addEventListener("click", (event)=>
     {
         let ventana=document.getElementById("detallesAmigo");
         ventana.classList.add("oculto"); 

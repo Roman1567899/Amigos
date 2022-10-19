@@ -93,6 +93,29 @@ main .formulario label input
     background-color:dimgray;
 }
 
+main .formulario .numero_error
+{
+    height: 20px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    background-color:tomato;
+}
+
+main .formulario .numero_error p
+{
+    font-size: 17px;
+    color: #eee;
+}
+
+main .formulario .ocultar_numero
+{
+    display:none;
+}
+
 main .formulario div
 {
     margin: 10px 20px;
@@ -153,8 +176,9 @@ main .lista .listaAmigos div
     width: 200px;
     height: 50px;
     display: flex;
-    justify-content:space-between;
+    justify-content:space-evenly;
     align-items: center;
+    gap: 10px;
 }
 
 main .lista .listaAmigos div p
@@ -173,6 +197,19 @@ main .lista .listaAmigos div button
     color: azure;
     cursor: pointer;
 }
+
+/* main .lista .listaAmigos div .btndelete
+{
+    width: 100px;
+    height: 30px;
+    border:none;
+    border-radius: 5px;
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: azure;
+    cursor: pointer;
+} */
 
 main .lista .listaAmigos div button:hover
 {
@@ -206,6 +243,12 @@ main .lista .listaAmigos div button:hover
     font-weight:bold;
     font-size: 20px;
 }
+.detallesAmigo div
+{
+    font-size: 15px;
+    text-align: center;
+
+}
 
 .detallesAmigo p, span
 {
@@ -232,6 +275,7 @@ main .lista .listaAmigos div button:hover
 {
     display: none;
 }
+
 
 
 
