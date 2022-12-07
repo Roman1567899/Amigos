@@ -59,14 +59,6 @@ function pintar()
     }
 }
 
-function deleteuser()
-{
-    let botn=document.getElementById(btncerrar);
-    let index=amigos.splice(a=>
-        {
-            
-        });
-}
 
 function showDetalles(tel)
 {
@@ -81,7 +73,6 @@ function showDetalles(tel)
 
     detalles.innerHTML=`<img src="${amigo.foto}" alt="">
     <h3>${amigo.nombre}</h3>
-    <div><p>Este número ya existe<p/><div/>
     <p><span>Teléfono:</span>${amigo.telefono}</p>
     <p><span>Correo:</span>${amigo.correo}</p>
     <button id="btncerrar">Cerrar</button>`;
@@ -109,21 +100,30 @@ btnguardar.addEventListener("click",(event)=>
         let error=document.getElementById("error");
         error.classList.remove("oculto_error");
         event.preventDefault();
+        console.log("Cochinero"); 
+    }
+    else if(formulario[1].value==amigos.telefono)
+    {
+        
+        let errorcontacto=document.getElementById("error_conta");
+        errorcontacto.classList.remove("ocultar_numero");
+        event.preventDefault(); 
+        console.log("Cochinero");  
     }
     else
     {
         let contacto=
-    {
-    nombre:formulario["nombre"].value,
-    telefono:formulario["telefono"].value,
-    correo:formulario["correo"].value,
-    foto:formulario["foto"].value
-    };
+        {
+            nombre:formulario["nombre"].value,
+            telefono:formulario["telefono"].value,
+            correo:formulario["correo"].value,
+            foto:formulario["foto"].value
+        };
 
-    amigos.push(contacto);
-    limpiar();
-    pintar()
-    event.preventDefault();
+        amigos.push(contacto);
+        limpiar();
+        pintar()
+        event.preventDefault();
     }
     
 });
